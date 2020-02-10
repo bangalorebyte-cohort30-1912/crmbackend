@@ -34,5 +34,5 @@ urlpatterns = [
     path('', include('social_django.urls', namespace='social')),
     path('', include(router.urls)),
     # path('leads/<int:pk>/reassign', reassign, name='reassign' ),
-    # path('test', celerytest, name='celerytest')
+    path('test', celerytest, name='celerytest')
 ]

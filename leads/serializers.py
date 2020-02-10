@@ -6,6 +6,7 @@ from mailengine.models import EventLog
 from leads.utils import assign_salesperson
 from django.utils import timezone
 from django.core.mail import send_mail
+from mailengine.tasks import followup
 
 
 class LeadSerializer(serializers.ModelSerializer):
@@ -24,6 +25,7 @@ class LeadSerializer(serializers.ModelSerializer):
         eventlog_obj = EventLog(event_lead=lead_object, event_type="New Lead", salesperson=salesperson, manager=manager)
         eventlog_obj.save()
         send_mail('New Lead', f'New Lead assigned to { salesperson.email }', 'tempbytedeveloper@gmail.com', [salesperson.email, manager.email], fail_silently=False,)
+        followup.delay(event_id=eventlog_obj.id, type='regular')
         return lead_object
 
 

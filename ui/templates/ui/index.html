@@ -87,22 +87,22 @@
                             <p> Service Requirements  </p>
                             <p> Location of Hire  </p>
                             <p> Industry  </p>
-                            <p> Company Enployee Strength  </p>
+                            <p> Company Employee Strength  </p>
                             <p> Form Submission Time  </p>
                             <p> Form Type  </p> 
                         </div>
                         <div class="col m-3 lead-data">
                         </div>
                         <div class="col m-3 lead-form">
-                            <form action=get_action() id="changeStatusForm" method="PATCH">
-                            <h5>Current Lead Status : <span class="btn btn-randstad-yellow" id="leadStatus"></span></h5>
+                            <h6>Current Lead Status : <span class="btn btn-randstad-yellow" id="leadStatus"></span></h6>
+                            <form>
                             <select class="custom-select" id="status">
                                     <option selected id="currentStatus" disabled></option>
                                     <option value="1">BD Call</option>
                                     <option value="2">Meeting</option>
                                     <option value="3">Proposal</option>
                             </select>
-                            <input type="submit" value="Change Status"  onClick="sendNewStatus" class="btn btn-randstad m-4">
+                            <button type="button" id="submitStatus" class="btn btn-randstad m-4">Submit New Status</button>
                             </form>
                         </div>
                     </div>
@@ -111,18 +111,22 @@
         </div>
     </div>
 
-    <div class="modal fade" id="reassign-modal" role="dialog">
+    <div class="modal fade" id="reassignModal" role="dialog">
         <div class="modal-dialog mw-100 w-50">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header modal-randstad">
                     <h4 class="modal-title">Lead Reassign</h4>
-
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        
-                    </div>
+                <div class="modal-body m-3">                
+                    <h6> Lead is currently assigned to : <span class="btn btn-randstad-yellow" id="leadSalesperson"></span></h6>
+                    <p> You can reassign the lead to below team members </p>
+                    <form>
+                        <select class="custom-select" id="salespersons">
+                        </select>
+                        <button type="button" id="reassignSalesperson" class="btn btn-randstad m-4">Reassign</button>
+                    </form>                        
                 </div>
             </div>
         </div>

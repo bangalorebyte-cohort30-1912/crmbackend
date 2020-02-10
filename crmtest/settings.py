@@ -177,8 +177,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-CELERY_BROKER_URL ='redis://h:p6b6b2dcac7f36b8bc263229a003097d32045573c16f3bcd9ed1ce213b47e6ec9@ec2-35-173-24-245.compute-1.amazonaws.com:17179/0'
-CELERY_RESULT_BACKEND = 'redis://h:p6b6b2dcac7f36b8bc263229a003097d32045573c16f3bcd9ed1ce213b47e6ec9@ec2-35-173-24-245.compute-1.amazonaws.com:17179/0'
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
@@ -187,7 +187,7 @@ CELERY_TIMEZONE = TIME_ZONE
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.RedisCache",
-        "LOCATION": "redis://h:p6b6b2dcac7f36b8bc263229a003097d32045573c16f3bcd9ed1ce213b47e6ec9@ec2-35-173-24-245.compute-1.amazonaws.com:17179",
+        "LOCATION": "redis://localhost:6379/0",
     }
 }
 

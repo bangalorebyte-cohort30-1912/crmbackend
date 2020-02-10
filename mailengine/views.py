@@ -7,8 +7,6 @@ from django.http import HttpResponse
 
 def celerytest(request):
     print("something should run here..")
-    eventlog_obj = EventLog.objects.get(pk=1)
-    # parse_eventlog(eventlog_obj)
-    followup.delay("testing")
+    followup.delay(event_id=1, type='regular')
     print("testing")
     return HttpResponse("Executed")
